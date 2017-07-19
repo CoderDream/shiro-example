@@ -1,19 +1,15 @@
 package com.github.zhangkaitao.shiro.chapter7.web.servlet;
 
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
-import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
+import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
 
 /**
  * <p>User: Zhang Kaitao
@@ -23,7 +19,11 @@ import java.io.IOException;
 @WebServlet(name = "formFilterLoginServlet", urlPatterns = "/formfilterlogin")
 public class FormFilterLoginServlet extends HttpServlet {
 
-    @Override
+
+	/** */
+	private static final long serialVersionUID = -5414597679626348196L;
+
+	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
     }

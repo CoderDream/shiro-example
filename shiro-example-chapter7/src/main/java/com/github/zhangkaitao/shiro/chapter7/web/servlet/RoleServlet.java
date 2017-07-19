@@ -11,17 +11,24 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * <p>User: Zhang Kaitao
- * <p>Date: 14-1-29
- * <p>Version: 1.0
+ * <p>
+ * User: Zhang Kaitao
+ * <p>
+ * Date: 14-1-29
+ * <p>
+ * Version: 1.0
  */
 @WebServlet(name = "roleServlet", urlPatterns = "/role")
 public class RoleServlet extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Subject subject = SecurityUtils.getSubject();
-        subject.checkRole("admin");
-        req.getRequestDispatcher("/WEB-INF/jsp/hasRole.jsp").forward(req, resp);
-    }
+	/** */
+	private static final long serialVersionUID = 1266228692334093540L;
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		Subject subject = SecurityUtils.getSubject();
+		subject.checkRole("admin");
+		req.getRequestDispatcher("/WEB-INF/jsp/hasRole.jsp").forward(req, resp);
+	}
 }

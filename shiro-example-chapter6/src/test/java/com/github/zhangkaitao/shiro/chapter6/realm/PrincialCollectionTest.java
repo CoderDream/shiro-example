@@ -24,10 +24,10 @@ public class PrincialCollectionTest extends BaseTest {
 
 	@Test
 	public void test() {
-
 		// 因为Realm里没有进行验证，所以相当于每个Realm都身份验证成功了
 		login("classpath:shiro-multirealm.ini", "zhang", "123");
 		Subject subject = subject();
+
 		// 获取Primary Principal（即第一个）
 		Object primaryPrincipal1 = subject.getPrincipal();
 		PrincipalCollection princialCollection = subject.getPrincipals();

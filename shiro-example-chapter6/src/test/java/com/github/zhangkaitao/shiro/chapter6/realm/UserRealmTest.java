@@ -67,7 +67,8 @@ public class UserRealmTest extends BaseTest {
 	@Test
 	public void testHasPermission() {
 		login("classpath:shiro.ini", u1.getUsername(), password);
-		Assert.assertTrue(subject().isPermittedAll("user:create", "menu:create"));
+		Assert.assertTrue(
+				subject().isPermittedAll("user:create", "menu:create"));
 	}
 
 	@Test

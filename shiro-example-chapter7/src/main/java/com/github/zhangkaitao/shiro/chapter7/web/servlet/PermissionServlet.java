@@ -11,17 +11,25 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * <p>User: Zhang Kaitao
- * <p>Date: 14-1-29
- * <p>Version: 1.0
+ * <p>
+ * User: Zhang Kaitao
+ * <p>
+ * Date: 14-1-29
+ * <p>
+ * Version: 1.0
  */
 @WebServlet(name = "permissionServlet", urlPatterns = "/permission")
 public class PermissionServlet extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Subject subject = SecurityUtils.getSubject();
-        subject.checkPermission("user:create");
-        req.getRequestDispatcher("/WEB-INF/jsp/hasPermission.jsp").forward(req, resp);
-    }
+	/** */
+	private static final long serialVersionUID = -5353876221432996677L;
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		Subject subject = SecurityUtils.getSubject();
+		subject.checkPermission("user:create");
+		req.getRequestDispatcher("/WEB-INF/jsp/hasPermission.jsp").forward(req,
+				resp);
+	}
 }
