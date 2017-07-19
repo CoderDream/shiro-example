@@ -10,7 +10,9 @@ import java.io.Serializable;
  */
 public class RolePermssion implements Serializable {
 
-    private Long roleId;
+    /** */
+	private static final long serialVersionUID = -6330102485621150559L;
+	private Long roleId;
     private Long permissionId;
 
     public Long getRoleId() {

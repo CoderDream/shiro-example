@@ -10,7 +10,9 @@ import java.io.Serializable;
  */
 public class UserRole implements Serializable {
 
-    private Long userId;
+    /** */
+	private static final long serialVersionUID = 5452870316640998754L;
+	private Long userId;
     private Long roleId;
 
     public Long getUserId() {
