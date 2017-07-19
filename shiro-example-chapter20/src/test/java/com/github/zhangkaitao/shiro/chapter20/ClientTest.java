@@ -30,18 +30,19 @@ public class ClientTest {
 	@BeforeClass
 	public static void beforeClass() throws Exception {
 		// 创建一个server
-		server = new Server(8081);
-		WebAppContext context = new WebAppContext();
-		String webapp = "shiro-example-chapter20/src/main/webapp";
-		context.setDescriptor(webapp + "/WEB-INF/web.xml"); // 指定web.xml配置文件
-		context.setResourceBase(webapp); // 指定webapp目录
-		context.setContextPath("/");
-		context.setParentLoaderPriority(true);
-
-		server.setHandler(context);
-		server.start();
+//		server = new Server(8080);
+//		WebAppContext context = new WebAppContext();
+//		String webapp = "shiro-example-chapter20/src/main/webapp";
+//		context.setDescriptor(webapp + "/WEB-INF/web.xml"); // 指定web.xml配置文件
+//		context.setResourceBase(webapp); // 指定webapp目录
+//		context.setContextPath("/");
+//		context.setParentLoaderPriority(true);
+//
+//		server.setHandler(context);
+//		server.start();
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void testServiceHelloSuccess() {
 		String username = "admin";
@@ -57,7 +58,7 @@ public class ClientTest {
 		params.add(Constants.PARAM_DIGEST, HmacSHA256Utils.digest(key, params));
 
 		String url = UriComponentsBuilder
-				.fromHttpUrl("http://localhost:8081/hello").queryParams(params)
+				.fromHttpUrl("http://localhost:8080/chapter20/hello").queryParams(params)
 				.build().toUriString();
 
 		ResponseEntity responseEntity = restTemplate.getForEntity(url,
@@ -68,6 +69,11 @@ public class ClientTest {
 
 	@Test
 	public void testServiceHelloFail() {
+//		String username = "admin";
+//		String param11 = "param11";
+//		String param12 = "param12";
+//		String param2 = "param2";
+//		String key = "dadadswdewq2ewdwqdwadsadasd";
 		String username = "admin";
 		String param11 = "param11";
 		String param12 = "param12";
@@ -82,7 +88,7 @@ public class ClientTest {
 		params.set("param2", param2 + "1");
 
 		String url = UriComponentsBuilder
-				.fromHttpUrl("http://localhost:8080/hello").queryParams(params)
+				.fromHttpUrl("http://localhost:8080/chapter20/hello").queryParams(params)
 				.build().toUriString();
 
 		try {
@@ -96,6 +102,6 @@ public class ClientTest {
 
 	@AfterClass
 	public static void afterClass() throws Exception {
-		server.stop(); // 当测试结束时停止服务器
+	//	server.stop(); // 当测试结束时停止服务器
 	}
 }

@@ -75,8 +75,6 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-
-
 	</dependencies>
 
 	<build>
@@ -101,7 +99,6 @@
 					</webAppConfig>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
@@ -118,8 +115,5 @@
 				</configuration>
 			</plugin>
 		</plugins>
-
-
 	</build>
-
 </project>
