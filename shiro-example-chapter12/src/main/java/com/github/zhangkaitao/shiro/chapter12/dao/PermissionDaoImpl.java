@@ -1,13 +1,14 @@
 package com.github.zhangkaitao.shiro.chapter12.dao;
 
-import com.github.zhangkaitao.shiro.chapter12.entity.Permission;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import com.github.zhangkaitao.shiro.chapter12.entity.Permission;
 
 /**
  * <p>User: Zhang Kaitao
