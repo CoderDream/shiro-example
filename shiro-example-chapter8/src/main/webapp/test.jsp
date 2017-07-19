@@ -1,5 +1,4 @@
 <html>
-<body>
-login success
+<body>login success
 </body>
 </html>

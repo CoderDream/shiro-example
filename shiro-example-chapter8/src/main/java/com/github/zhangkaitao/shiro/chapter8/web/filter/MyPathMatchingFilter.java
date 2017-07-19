@@ -7,15 +7,20 @@ import javax.servlet.ServletResponse;
 import java.util.Arrays;
 
 /**
- * <p>User: Zhang Kaitao
- * <p>Date: 14-2-3
- * <p>Version: 1.0
+ * <p>
+ * User: Zhang Kaitao
+ * <p>
+ * Date: 14-2-3
+ * <p>
+ * Version: 1.0
  */
 public class MyPathMatchingFilter extends PathMatchingFilter {
 
-    @Override
-    protected boolean onPreHandle(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {
-        System.out.println("url matches,config is " + Arrays.toString((String[])mappedValue));
-        return true;
-    }
+	@Override
+	protected boolean onPreHandle(ServletRequest request,
+			ServletResponse response, Object mappedValue) throws Exception {
+		System.out.println("url matches,config is "
+				+ Arrays.toString((String[]) mappedValue));
+		return true;
+	}
 }
