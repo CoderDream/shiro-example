@@ -1,12 +1,14 @@
 package com.github.zhangkaitao.shiro.chapter6.realm;
 
-import com.github.zhangkaitao.shiro.chapter6.BaseTest;
-import junit.framework.Assert;
 import org.apache.shiro.authc.ExcessiveAttemptsException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.junit.Test;
+
+import com.github.zhangkaitao.shiro.chapter6.BaseTest;
+
+import junit.framework.Assert;
 
 /**
  * <p>
@@ -76,5 +78,5 @@ public class UserRealmTest extends BaseTest {
 		login("classpath:shiro.ini", u2.getUsername(), password);
 		Assert.assertFalse(subject().isPermitted("user:create"));
 	}
-
+	
 }
