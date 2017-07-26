@@ -13,13 +13,14 @@ import java.util.*;
  * <p>Version: 1.0
  */
 @Service
-
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+    
     @Autowired
     private PasswordHelper passwordHelper;
+    
     @Autowired
     private RoleService roleService;
 
