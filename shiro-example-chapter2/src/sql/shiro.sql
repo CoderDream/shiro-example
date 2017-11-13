@@ -1,6 +1,6 @@
-drop database if exists shiro;
-create database shiro;
-use shiro;
+drop database if exists shiro_example_chapter2;
+create database shiro_example_chapter2;
+use shiro_example_chapter2;
 
 create table users (
   id bigint auto_increment,

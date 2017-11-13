@@ -137,13 +137,19 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-maven-plugin -->
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.4.6.v20170531</version>
 				<configuration>
-					<webAppConfig>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<httpConnector>
+						<port>8088</port>
+						<idleTimeout>60000</idleTimeout>
+					</httpConnector>
+					<webApp>
 						<contextPath>/${project.build.finalName}</contextPath>
-					</webAppConfig>
+					</webApp>
 				</configuration>
 			</plugin>
 			<plugin>

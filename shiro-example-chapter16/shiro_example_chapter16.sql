@@ -1,3 +1,56 @@
+drop database if exists shiro_example_chapter16;
+create database shiro_example_chapter16;
+use shiro_example_chapter16;
+
+create table sys_user (
+  id bigint auto_increment,
+  organization_id bigint,
+  username varchar(100),
+  password varchar(100),
+  salt varchar(100),
+  role_ids varchar(100),
+  locked bool default false,
+  constraint pk_sys_user primary key(id)
+) charset=utf8 ENGINE=InnoDB;
+create unique index idx_sys_user_username on sys_user(username);
+create index idx_sys_user_organization_id on sys_user(organization_id);
+
+create table sys_organization (
+  id bigint auto_increment,
+  name varchar(100),
+  parent_id bigint,
+  parent_ids varchar(100),
+  available bool default false,
+  constraint pk_sys_organization primary key(id)
+) charset=utf8 ENGINE=InnoDB;
+create index idx_sys_organization_parent_id on sys_organization(parent_id);
+create index idx_sys_organization_parent_ids on sys_organization(parent_ids);
+
+
+create table sys_resource (
+  id bigint auto_increment,
+  name varchar(100),
+  type varchar(50),
+  url varchar(200),
+  parent_id bigint,
+  parent_ids varchar(100),
+  permission varchar(100),
+  available bool default false,
+  constraint pk_sys_resource primary key(id)
+) charset=utf8 ENGINE=InnoDB;
+create index idx_sys_resource_parent_id on sys_resource(parent_id);
+create index idx_sys_resource_parent_ids on sys_resource(parent_ids);
+
+create table sys_role (
+  id bigint auto_increment,
+  role varchar(100),
+  description varchar(100),
+  resource_ids varchar(100),
+  available bool default false,
+  constraint pk_sys_role primary key(id)
+) charset=utf8 ENGINE=InnoDB;
+create index idx_sys_role_resource_ids on sys_role(resource_ids);
+
 DELIMITER ;
 delete from sys_user;
 delete from sys_role;
@@ -36,8 +89,4 @@ insert into sys_resource values(43, '角色修改', 'button', '', 41, '0/1/41/',
 insert into sys_resource values(44, '角色删除', 'button', '', 41, '0/1/41/', 'role:delete', true);
 insert into sys_resource values(45, '角色查看', 'button', '', 41, '0/1/41/', 'role:view', true);
 
-insert into sys_resource values(51, '会话管理', 'menu', '/sessions', 1, '0/1/', 'session:*', true);
-
-insert into sys_role values(1, 'admin', '超级管理员', '11,21,31,41,51', true);
-
-#0000000F
+insert into sys_role values(1, 'admin', '超级管理员', '11,21,31,41', true);
